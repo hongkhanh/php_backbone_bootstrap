@@ -5,14 +5,13 @@
 define(function(require) {
     'use strict';
 
-    var Backbone = require('backbone'),
-        MINI = require('minified'),
-        _=MINI._, $=MINI.$, $$=MINI.$$;
+    var $ = require('jquery'),
+        Backbone = require('backbone');
 
     Backbone.View.prototype.destroy = function(){
 
-        this.el.innerHTML='';    // remove view from DOM
-        this.undelegateEvents(); // Unbind all local event bindings
+        this.remove();  // remove view from DOM
+        this.unbind(); // Unbind all local event bindings
 
         delete this.el;          // delete wrapper
         delete this.$el;         // delete wrapper

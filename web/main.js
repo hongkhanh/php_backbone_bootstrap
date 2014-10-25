@@ -2,18 +2,15 @@
  * Created by khanhnh on 25/09/2014.
  */
 
-// dummy jquery & underscore
-define('jquery', function(){});
-define('underscore', function(){});
-
 // config curl
 curl.config({
     baseUrl: '',
     paths: {
         // libs
-        minified: 'libs/minified',
+        jquery: 'libs/jquery',
+        underscore: 'libs/underscore',
         backbone: {
-            location: 'libs/exoskeleton.js',
+            location: 'libs/backbone.js',
             exports: 'Backbone',
             requires: ['jquery', 'underscore']
         },
@@ -23,10 +20,8 @@ curl.config({
         comm: 'app/comm',
 
         // views
-        'book:create': 'views/book/create',
-        'book:edit': 'views/book/edit',
+
         'book:list': 'views/book/list',
-        'book:detail': 'views/book/detail',
 
         // models
         'model:book': 'models/book',
@@ -35,11 +30,7 @@ curl.config({
         'collection:book': 'collections/book',
 
         // templates
-        'book:create.html': 'templates/book/create.html',
-        'book:edit.html': 'templates/book/edit.html',
-        'book:list.html': 'templates/book/list.html',
-        'book:detail.html': 'templates/book/detail.html'
-
+        'book:list.html': 'templates/book/list.html'
     },
     pluginPath: 'libs/curl/plugin'
 });

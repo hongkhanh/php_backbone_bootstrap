@@ -6,16 +6,16 @@ define(function(require){
     'use strict';
 
     var app = require('app'),
+        $ = require('jquery'),
+        _ = require('underscore'),
         Backbone = require('backbone'),
-        MINI = require('minified'),
-        _=MINI._, $=MINI.$, $$=MINI.$$,
         Book = require('model:book'),
         BookCollection = require('collection:book'),
         template = require('text!book:list.html');
 
     return  Backbone.View.extend({
         useNative: true,
-        el: '.content',
+        $el: '.content',
         template: _.template(template),
         events:
         {
@@ -27,7 +27,6 @@ define(function(require){
         initialize: function()
         {
             this.render();
-            $(window).on('resize', function(){console.log('resize')})
         },
         render: function()
         {
@@ -36,8 +35,8 @@ define(function(require){
 
             Books.fetch({
                 success: function( data){
-                    var html = self.template(data.toJSON());
-                    self.el.innerHTML = html;
+                    var html = self.template({items: data.toJSON()});
+                    self.$el.html(html);
                     self.modelList = Books;
                 },
                 error: function(){}
@@ -79,7 +78,6 @@ define(function(require){
         },
         destructor: function () {
             console.log('destroy view');
-            $.off(window);
         }
     });
 })
