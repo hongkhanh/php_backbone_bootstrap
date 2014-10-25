@@ -40,7 +40,9 @@ class Module implements ModuleDefinitionInterface
 		/**
 		 * Read configuration
 		 */
-		$config = include __DIR__ . "/config/config.php";
+		$config = include_once __DIR__ . "/config/config.php";
+
+        $di.setShared('config', $config);
 
 		$di['dispatcher'] = function() {
 		    $dispatcher = new Dispatcher();

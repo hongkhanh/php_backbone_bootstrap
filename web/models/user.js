@@ -15,7 +15,7 @@ define(function(require){
             {
                 case 'create':
                     var request = model.attributes;
-                    comm.send(request, 'book/create', function(err, data)
+                    comm.send(request, 'api/user/scaffold/create', function(err, data)
                     {
                         if(!err) options.success(data);
                         else options.error(err);

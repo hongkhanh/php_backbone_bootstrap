@@ -6,14 +6,14 @@ define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        ListView = require('book:list');
+        SignUp = require('account:signup');
 
     return Backbone.Router.extend({
         routes: {
             '': 'index'
         },
         index: function() {
-            new ListView();
+            new SignUp();
         }
     });
 });

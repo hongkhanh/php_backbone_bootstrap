@@ -10,11 +10,11 @@ define(function(require) {
 
     Backbone.View.prototype.destroy = function(){
 
-        this.remove();  // remove view from DOM
-        this.unbind(); // Unbind all local event bindings
+        this.remove();          // remove view from DOM
+        this.unbind();          // Unbind all local event bindings
 
-        delete this.el;          // delete wrapper
-        delete this.$el;         // delete wrapper
+        delete this.el;         // delete wrapper
+        delete this.$el;        d// delete wrapper
 
         if (this.destructor) this.destructor(); // for manual destroying just include destructor to backbone view
     }

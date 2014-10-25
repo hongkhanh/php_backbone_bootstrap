@@ -21,16 +21,16 @@ curl.config({
 
         // views
 
-        'book:list': 'views/book/list',
+        'account:add': 'views/account/account_add',
 
         // models
-        'model:book': 'models/book',
+        'model:user': 'models/user',
 
         // collection
         'collection:book': 'collections/book',
 
         // templates
-        'book:list.html': 'templates/book/list.html'
+        'account:signup.html': 'templates/account/signup.html'
     },
     pluginPath: 'libs/curl/plugin'
 });
