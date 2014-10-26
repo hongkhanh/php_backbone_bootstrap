@@ -21,7 +21,7 @@ curl.config({
 
         // views
 
-        'account:add': 'views/account/account_add',
+        'account:signup': 'views/account/signup',
 
         // models
         'model:user': 'models/user',

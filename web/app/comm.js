@@ -7,8 +7,8 @@ define(function(require){
 
     var comm =
         {
-            host: "http://localhost:8080/",
-            debug: '?XDEBUG_SESSION_START=19521',
+            host: "http://localhost:8081/api/",
+            debug: '?XDEBUG_SESSION_START=14290',
             send: function (request, url, cb)
             {
                 var con = new XMLHttpRequest();

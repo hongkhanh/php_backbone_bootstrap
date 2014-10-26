@@ -21,12 +21,12 @@ class ScaffoldController extends ControllerBase {
             $user->$key = $value;
         }
         if ($user->save() == false) {
-            $response = $this->getShared('config')->message->user_save_failure;
+            $response = 'failed';
             foreach ($user->getMessages() as $message) {
                 $response += $message . "\n";
             }
         } else {
-            $response = $this->getShared('config')->message->user_save_success;
+            $response = 'succeed';
         }
         echo json_encode(array(
             'message'=>$response

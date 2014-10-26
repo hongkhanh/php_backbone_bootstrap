@@ -42,8 +42,6 @@ class Module implements ModuleDefinitionInterface
 		 */
 		$config = include_once __DIR__ . "/config/config.php";
 
-        $di.setShared('config', $config);
-
 		$di['dispatcher'] = function() {
 		    $dispatcher = new Dispatcher();
 		    $dispatcher->setDefaultNamespace("Camera\User\Controllers");

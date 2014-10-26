@@ -9,12 +9,12 @@ define(function(require){
         $ = require('jquery'),
         _ = require('underscore'),
         Backbone = require('backbone'),
-        User = require('model:book'),
+        User = require('model:user'),
         template = require('text!account:signup.html');
 
     return  Backbone.View.extend({
         useNative: true,
-        $el: $('.content'),
+        el: '.content',
         template: _.template(template),
         events: {
             'click #btnCreate': 'create',
@@ -25,11 +25,23 @@ define(function(require){
         },
         render: function() {
             var html = this.template();
-            this.$el.html(html);
+            $(this.el).html(html);
 
             return this;
         },
         create: function()
+        {
+            var user = new User({
+                email: $('#txtEmail').val(),
+                name: $('#txtUsername').val()
+            });
+            user.save({}, {
+                success: function(data, response){
+                    alert(response.message);
+                }
+            });
+        },
+        cancel: function()
         {
             var user = new User({
                 email: $('#txtEmail').val(),
